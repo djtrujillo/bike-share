@@ -63,5 +63,14 @@ RSpec.describe Station do
 
       expect(Station.max_station).to eq(max)
     end
+
+    it 'finds top 5 stations' do
+      Station.create(name: "StationOne", city_id: 1, dock_count: 2, installation_date: @date)
+      Station.create(name: "StationTwo", city_id: 1, dock_count: 2, installation_date: @date)
+      Station.create(name: "StationThree", city_id: 1, dock_count: 2, installation_date: @date)
+      Station.create(name: "StationFour", city_id: 1, dock_count: 2, installation_date: @date)
+
+      expect(Station.top_stations(5).count).to eq(5)
+    end
   end
 end

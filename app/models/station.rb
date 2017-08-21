@@ -18,4 +18,8 @@ class Station < ActiveRecord::Base
   def self.max_station
     Station.where(:dock_count => Station.maximum('dock_count')).first
   end
+
+  def self.top_stations(amount)
+    Station.order('dock_count DESC').limit(amount)
+  end
 end
