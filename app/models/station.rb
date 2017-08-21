@@ -5,4 +5,8 @@ class Station < ActiveRecord::Base
   validates :installation_date, presence: true
 
   belongs_to :city
+
+  # def self.count
+  #   count
+  # end
 end

@@ -1,8 +1,11 @@
 RSpec.describe Station do
   describe "Validations" do
+    before(:each) do
+      @date = DateTime.now
+    end
+
     it "validations city, name, dock_count, and installation date" do
-      date = DateTime.now
-      valid_station = Station.create(name: "StationOne", city_id: 1, dock_count: 10, installation_date: date)
+      valid_station = Station.create(name: "StationOne", city_id: 1, dock_count: 10, installation_date: @date)
 
       expect(valid_station).to be_valid
 
@@ -15,24 +18,33 @@ RSpec.describe Station do
     end
 
     it 'invalid station cannot be created without name' do
-      date = DateTime.now
-      invalid_station = Station.create(city_id: 1, dock_count: 10, installation_date: date)
+      invalid_station = Station.create(city_id: 1, dock_count: 10, installation_date: @date)
 
       expect(invalid_station).to_not be_valid
     end
 
     it 'invalid station cannot be created without city_id' do
-      date = DateTime.now
-      invalid_station = Station.create(name: "StationOne", dock_count: 10, installation_date: date)
+      invalid_station = Station.create(name: "StationOne", dock_count: 10, installation_date: @date)
 
       expect(invalid_station).to_not be_valid
     end
 
     it 'invalid station cannot be created without dock_count' do
-      date = DateTime.now
-      invalid_station = Station.create(name: "StationOne", city_id: 1, installation_date: date)
+      invalid_station = Station.create(name: "StationOne", city_id: 1, installation_date: @date)
 
       expect(invalid_station).to_not be_valid
+    end
+  end
+
+  describe 'dashboard methods' do
+    it 'counts the total number of stations' do
+      station_one = Station.create(name: "StationOne", city_id: 1, dock_count: 10, installation_date: @date)
+
+      expect(Station.count).to be(1)
+
+      station_two = Station.create(name: "StationTwo", city_id: 1, dock_count: 10, installation_date: @date)
+
+      expect(Station.count).to be(2)
     end
   end
 end
