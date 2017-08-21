@@ -16,7 +16,6 @@ class Station < ActiveRecord::Base
   end
 
   def self.max_station
-    max = Station.maximum('dock_count')
-    Station.where(:dock_count => max)
+    Station.where(:dock_count => Station.maximum('dock_count')).first
   end
 end

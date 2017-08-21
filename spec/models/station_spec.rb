@@ -55,5 +55,13 @@ RSpec.describe Station do
 
       expect(Station.average_count).to be(10)
     end
+
+    it 'finds station with most bikes' do
+      max = Station.create(name: "StationOne", city_id: 1, dock_count: 1000, installation_date: @date)
+      Station.create(name: "StationOne", city_id: 1, dock_count: 2, installation_date: @date)
+
+
+      expect(Station.max_station).to eq(max)
+    end
   end
 end
