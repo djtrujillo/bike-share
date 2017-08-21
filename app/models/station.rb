@@ -6,7 +6,17 @@ class Station < ActiveRecord::Base
 
   belongs_to :city
 
-  # def self.count
-  #   count
+# This method is not needed, shorte to just use #count
+  # def self.total
+  #   Station.all.count
   # end
+
+  def self.average_count
+    Station.average(:dock_count).round
+  end
+
+  def self.max_station
+    max = Station.maximum('dock_count')
+    Station.where(:dock_count => max)
+  end
 end

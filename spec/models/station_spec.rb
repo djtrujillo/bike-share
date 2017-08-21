@@ -37,14 +37,23 @@ RSpec.describe Station do
   end
 
   describe 'dashboard methods' do
-    it 'counts the total number of stations' do
-      station_one = Station.create(name: "StationOne", city_id: 1, dock_count: 10, installation_date: @date)
+    before(:each) do
+      @date = DateTime.now
+      Station.create(name: "StationOne", city_id: 1, dock_count: 10, installation_date: @date)
+    end
 
+    it 'counts the total number of stations' do
       expect(Station.count).to be(1)
 
-      station_two = Station.create(name: "StationTwo", city_id: 1, dock_count: 10, installation_date: @date)
+      Station.create(name: "StationTwo", city_id: 1, dock_count: 10, installation_date: @date)
 
       expect(Station.count).to be(2)
+    end
+
+    it 'finds average dock_count' do
+      Station.create(name: "StationOne", city_id: 1, dock_count: 10, installation_date: @date)
+
+      expect(Station.average_count).to be(10)
     end
   end
 end
