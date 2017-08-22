@@ -10,7 +10,6 @@ gem 'pry'
 gem 'pry-byebug'
 gem 'fastercsv'
 gem 'activerecord-import'
-gem 'will_paginate'
 gem 'simplecov'
 gem 'sinatra-namespace'
 
