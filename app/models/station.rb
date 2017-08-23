@@ -55,4 +55,17 @@ class Station < ActiveRecord::Base
     Station.find(station[0])[:name]
   end
 
+  def date_with_most_trips(station_id)
+
+  end
+
+  def most_frequent_zip_code_for_users(station_id)
+
+  end
+
+
+  def most_common_bike_id(station_id)
+
+  end
+
 end

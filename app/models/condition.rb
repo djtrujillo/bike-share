@@ -3,13 +3,13 @@ class Condition < ActiveRecord::Base
   has_many :trips
   validates :date, :max_temperature, :mean_temperature, :min_temperature, :mean_humidity, :mean_visibility, :mean_wind_speed, :precipitation, presence: true
 
-  def self.sort_temp_max(range)
-    amount = []
-    where(max_temperature: range).each do |condition|
-      amount << condition.trip if condition.date == 
-    end
-    amount.size
-  end
+  # def self.sort_temp_max(range)
+  #   amount = []
+  #   where(max_temperature: range).each do |condition|
+  #     amount << condition.trip if condition.date ==
+  #   end
+  #   amount.size
+  # end
 
   def self.sort_temp_min(range)
     amount = []
@@ -96,11 +96,11 @@ class Condition < ActiveRecord::Base
   end
 
   def self.sort_sight_min(range)
-    
+
   end
 
   def self.sort_sight_mean(range)
-    
+
   end
 
   # def self.sort_sight(range)
@@ -126,5 +126,3 @@ class Condition < ActiveRecord::Base
     Condition.find_by(date: day_with_lowest_rides)
   end
 end
-
-
