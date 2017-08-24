@@ -4,13 +4,13 @@
     <br>
     <ul class="list-group">
       <li class="list-group-item"><b>Average duration of a ride:</b>
-        <%= Trip.average_duration_of_ride.round %>
+        <%= ((Trip.average_duration_of_ride)/60).round %>
         minutes</li>
       <li class="list-group-item"><b>Longest ride:</b>
         <%= ((Trip.longest_ride)/60) %>
         minutes</li>
       <li class="list-group-item"><b>Shortest ride:</b>
-        <%= Trip.shortest_ride %>
+        <%= ((Trip.shortest_ride)/60) %>
         minutes</li>
       <li class="list-group-item"><b>Station with the most rides as a starting place:</b>
         <%= Trip.station_with_most_rides_as_starting_place %>
