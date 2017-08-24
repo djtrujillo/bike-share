@@ -18,20 +18,22 @@ RSpec.describe "User visits '/stations/:id'" do
     Station.create(name: "3rd station", dock_count: 15, city_id: 3, installation_date: installation_date)
     Station.create(name: "4th station", dock_count: 15, city_id: 4, installation_date: installation_date)
     Station.create(name: "5th station", dock_count: 15, city_id: 5, installation_date: installation_date)
+
   end
 
-  it "sees headers for data" do
+  it "sees shows all data" do
     visit('/stations/1')
-    expect(page).to have_content("City:")
-    expect(page).to have_content("Dock Count:")
-    expect(page).to have_content("Installation Date:")
-    expect(page).to have_content("Number of Rides Started At This Station:")
-    expect(page).to have_content("Number of Rides Ended At This Station:")
-    expect(page).to have_content("Most Frequent Destination Station:")
-    expect(page).to have_content("Most Frequent Origination Station:")
-    expect(page).to have_content("Date with Most Trips:")
-    expect(page).to have_content("Most Frequent Zip Code for Users of Station:")
-    expect(page).to have_content("Most Common Bike Id for this Station:")
+    save_page
+    expect(page).to have_content("City: Redwood City")
+    expect(page).to have_content("Dock Count: 30")
+    expect(page).to have_content("Installation Date: 01/01/2001")
+    expect(page).to have_content("Number of Rides Started At This Station: 3")
+    expect(page).to have_content("Number of Rides Ended At This Station: 1")
+    expect(page).to have_content("Most Frequent Destination Station: 3rd station")
+    expect(page).to have_content("Most Frequent Origination Station: 1st station")
+    expect(page).to have_content("Date with Most Trips: 2001-02-03")
+    expect(page).to have_content("Most Frequent Zip Code for Users of Station: 94103")
+    expect(page).to have_content("Most Common Bike Id for this Station: 318")
   end
 
   # it "user is able to click Edit" do

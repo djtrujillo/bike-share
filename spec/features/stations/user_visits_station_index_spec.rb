@@ -20,10 +20,30 @@ RSpec.describe "User visits '/stations'" do
     Station.create(name: "5th station", dock_count: 15, city_id: 5, installation_date: installation_date)
  end
 
-  it "sees header message" do
+  it "sees all data" do
     visit '/stations'
+    save_page
     expect(page).to have_content("Station Index")
+    expect(page).to have_content("1st station")
+    expect(page).to have_content("Dock Count: 30")
+    expect(page).to have_content("City: Redwood City")
+    expect(page).to have_content("Installation Date: 01/01/2001")
+    expect(page).to have_content("2nd station")
+    expect(page).to have_content("Dock Count: 50")
+    expect(page).to have_content("City: San Francisco")
+    expect(page).to have_content("3rd station")
+    expect(page).to have_content("Dock Count: 15")
+    expect(page).to have_content("City: Palo Alto ")
+    expect(page).to have_content("Installation Date: 01/01/2001")
+    expect(page).to have_content("4th station")
+    expect(page).to have_content("Dock Count: 15 ")
+    expect(page).to have_content("Installation Date: 01/01/2001")
+    expect(page).to have_content("5th station")
+    expect(page).to have_content("Dock Count: 15")
+    expect(page).to have_content("City: San Jose")
+    expect(page).to have_content("Installation Date: 01/01/2001")
   end
+
 
   # it "redirects to 'stations/id' if city is clicked on" do
   #   click_link("Station with the thing")

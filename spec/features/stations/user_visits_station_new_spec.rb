@@ -23,11 +23,13 @@ RSpec.describe "User visits '/stations/new'" do
 
   it "sees header message" do
     visit 'stations/new'
+    save_page
     expect(page).to have_content("Create New Station")
   end
 
   # it "can create new station" do
   #   visit 'stations/new'
+  #   save_and_open_page
   #   fill_in("station[name]", with: "Station1")
   #   fill_in("station[dock_count]", with: 3)
   #   select("Redwood City", :from => "station[city_id]")

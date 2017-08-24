@@ -21,18 +21,17 @@ RSpec.describe "User visits '/stations'" do
   end
 
 
-  it "sees headers for data" do
+  it "shows all data" do
     visit('/station-dashboard')
-    # save_page
-
-    expect(page).to have_content("Total Station Count:")
-    expect(page).to have_content("Average Bikes per Station:")
-    expect(page).to have_content("Most bikes available:")
+    save_page
+    expect(page).to have_content("Total Station Count: 5")
+    expect(page).to have_content("Average Bikes per Station: 25")
+    expect(page).to have_content("Most bikes available: 50")
     expect(page).to have_content("Most bikes available at:")
     expect(page).to have_content("Fewest bikes available at:")
-    expect(page).to have_content("Fewest Bikes available:")
-    expect(page).to have_content("Newest station:")
-    expect(page).to have_content("Oldest Station:")
+    expect(page).to have_content("Fewest Bikes available: 15")
+    expect(page).to have_content("Newest station: 1st station")
+    expect(page).to have_content("Oldest Station: 1st station")
   end
 
   #
