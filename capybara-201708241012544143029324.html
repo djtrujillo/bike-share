@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/overwrite.css" rel="stylesheet">
+    <title>Bike Share</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse navbar-sticky-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" id="text" href="/">BikeShare</a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <button class="btn btn-primary navbar-btn">Stations</button>
+                        <span class="caret"></span></a>
+                    <ul class="dropdown-menu dropdown-menu-left">
+                        <li><a href="/station-dashboard">Dashboard</a></li>
+                        <li><a href="/stations">Index</a></li>
+                        <li><a href="/stations/new">Create</a></li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a class="dropdown-toggle dropdown-menu-left" data-toggle="dropdown" href="#">
+                        <button class="btn btn-primary navbar-btn">Trips</button>
+                        <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/trips-dashboard">Dashboard</a></li>
+                        <li><a href="/trips">Index</a></li>
+                        <li><a href="/trips/new">Create</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-link dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">
+                        <button class="btn btn-primary navbar-btn">Conditions</button>
+                        <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/condition-dashboard">Dashboard</a></li>
+                        <li><a href="/conditions">Index</a></li>
+                        <li><a href="/conditions/new">Create</a></li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <button class="btn btn-primary navbar-btn">Cities</button>
+                        <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/cities">Index</a></li>
+                        <li><a href="/cities/new">Create</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+    <div class="container">
+      <div class="row">
+  <div class="col-lg-12 align-center" style='width: auto; margin: 0 auto !important'>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the corechart package.
+      google.charts.load('current', {'packages': ['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.charts.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table, instantiates the pie chart, passes in the data and draws it.
+      function drawChart() {
+
+        // Create the data table.
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Cities');
+        data.addColumn('number', 'Stations');
+        data.addRows([
+          [
+            'San Jose', 1
+          ],
+          [
+            'Redwood City', 1
+          ],
+          [
+            'Mountain View', 1
+          ],
+          [
+            'Palo Alto', 1
+          ],
+          ['San Francisco', 1]
+        ]);
+
+        // Set chart options
+        var options = {
+          'title': 'Stations Per City',
+          'width': 400,
+          'height': 350
+        };
+
+        // Instantiate and draw our chart, passing in some options.
+        var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </div>
+</div>
+</head>
+<div id="container" class="flexbox text-center">
+<div class='station_chart' id="chart_div"></div>
+</div>
+<div class="container">
+<div class="row">
+  <div class="col-lg-12 text-center">
+    <h1>Station Index</h1>
+    <br>
+    
+    <ul class="list-group">
+      <li class="list-group-item">
+        <b>
+          <a href="stations/1">1st station</a>
+        </b>
+      </li>
+    </ul>
+    <ul class="list-group">
+      <li class="list-group-item">
+        <span>Dock Count:
+          30</span>
+        <br/>
+        <span>City:
+          Redwood City</span>
+        <br/>
+        <span>Installation Date:
+          01/01/2001</span>
+      </li>
+      <br/>
+      <br/>
+    </ul>
+    
+    <ul class="list-group">
+      <li class="list-group-item">
+        <b>
+          <a href="stations/2">2nd station</a>
+        </b>
+      </li>
+    </ul>
+    <ul class="list-group">
+      <li class="list-group-item">
+        <span>Dock Count:
+          50</span>
+        <br/>
+        <span>City:
+          San Francisco</span>
+        <br/>
+        <span>Installation Date:
+          01/01/2001</span>
+      </li>
+      <br/>
+      <br/>
+    </ul>
+    
+    <ul class="list-group">
+      <li class="list-group-item">
+        <b>
+          <a href="stations/3">3rd station</a>
+        </b>
+      </li>
+    </ul>
+    <ul class="list-group">
+      <li class="list-group-item">
+        <span>Dock Count:
+          15</span>
+        <br/>
+        <span>City:
+          Palo Alto</span>
+        <br/>
+        <span>Installation Date:
+          01/01/2001</span>
+      </li>
+      <br/>
+      <br/>
+    </ul>
+    
+    <ul class="list-group">
+      <li class="list-group-item">
+        <b>
+          <a href="stations/4">4th station</a>
+        </b>
+      </li>
+    </ul>
+    <ul class="list-group">
+      <li class="list-group-item">
+        <span>Dock Count:
+          15</span>
+        <br/>
+        <span>City:
+          Mountain View</span>
+        <br/>
+        <span>Installation Date:
+          01/01/2001</span>
+      </li>
+      <br/>
+      <br/>
+    </ul>
+    
+    <ul class="list-group">
+      <li class="list-group-item">
+        <b>
+          <a href="stations/5">5th station</a>
+        </b>
+      </li>
+    </ul>
+    <ul class="list-group">
+      <li class="list-group-item">
+        <span>Dock Count:
+          15</span>
+        <br/>
+        <span>City:
+          San Jose</span>
+        <br/>
+        <span>Installation Date:
+          01/01/2001</span>
+      </li>
+      <br/>
+      <br/>
+    </ul>
+    
+  </div>
+</div>
+</div>
+
+    </div>
+    <footer class="footer">
+  <div class="container">
+    <p class="text-muted">BikeShare August 2017</p>
+    <p class="text-muted" id="right">Built with ActiveRecord and Sinatra</p>
+  </div>
+</footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js" integrity="sha384-BLiI7JTZm+JWlgKa0M0kGRpJbF2J8q+qreVrKBC47e3K6BW78kGLrCkeRX6I9RoK" crossorigin="anonymous"></script>
+  </body>
+</html>
