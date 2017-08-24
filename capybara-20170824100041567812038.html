@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/overwrite.css" rel="stylesheet">
+    <title>Bike Share</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse navbar-sticky-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" id="text" href="/">BikeShare</a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <button class="btn btn-primary navbar-btn">Stations</button>
+                        <span class="caret"></span></a>
+                    <ul class="dropdown-menu dropdown-menu-left">
+                        <li><a href="/station-dashboard">Dashboard</a></li>
+                        <li><a href="/stations">Index</a></li>
+                        <li><a href="/stations/new">Create</a></li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a class="dropdown-toggle dropdown-menu-left" data-toggle="dropdown" href="#">
+                        <button class="btn btn-primary navbar-btn">Trips</button>
+                        <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/trips-dashboard">Dashboard</a></li>
+                        <li><a href="/trips">Index</a></li>
+                        <li><a href="/trips/new">Create</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-link dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">
+                        <button class="btn btn-primary navbar-btn">Conditions</button>
+                        <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/condition-dashboard">Dashboard</a></li>
+                        <li><a href="/conditions">Index</a></li>
+                        <li><a href="/conditions/new">Create</a></li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <button class="btn btn-primary navbar-btn">Cities</button>
+                        <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/cities">Index</a></li>
+                        <li><a href="/cities/new">Create</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+    <div class="container">
+            <div class="row">
+          <div class="col-lg-12 text-center">
+    <h1>Station Dashboard</h1>
+    <br>
+        <ul class="list-group">
+        <li class="list-group-item">
+          <b>Total Station Count:</b>
+          5
+        <li class="list-group-item">
+          <b>Average Bikes per Station:</b>
+          25
+        <li class="list-group-item">
+          <b>Most bikes available:</b>
+    50
+        <li class="list-group-item">
+          <b>Most bikes available at:</b>
+          1st station
+          3rd station
+          4th station
+        <li class="list-group-item">
+          <b>Fewest bikes available at:</b>
+          4th station
+          5th station
+          1st station
+        <li class="list-group-item">
+          <b>Fewest Bikes available:</b>
+          15
+        <li class="list-group-item">
+          <b>Newest station:</b>
+          1st station
+        <li class="list-group-item">
+          <b>Oldest Station:</b>
+          1st station
+        </div>
+      </div>
+
+    </div>
+    <footer class="footer">
+  <div class="container">
+    <p class="text-muted">BikeShare August 2017</p>
+    <p class="text-muted" id="right">Built with ActiveRecord and Sinatra</p>
+  </div>
+</footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js" integrity="sha384-BLiI7JTZm+JWlgKa0M0kGRpJbF2J8q+qreVrKBC47e3K6BW78kGLrCkeRX6I9RoK" crossorigin="anonymous"></script>
+  </body>
+</html>
