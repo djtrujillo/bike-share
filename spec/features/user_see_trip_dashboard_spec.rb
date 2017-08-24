@@ -12,6 +12,8 @@ RSpec.describe "User visits '/trips-dashboard'" do
     Station.create(name: "Station with the thing", dock_count: 30, city_id: 2, installation_date: installation_date)
     Station.create(name: "Different station with the different thing", dock_count: 50, city_id: 2, installation_date: installation_date)
     Station.create(name: "Turbo station", dock_count: 15, city_id: 3, installation_date: installation_date)
+    Condition.create(date: start_date, max_temperature: 45, mean_temperature: 50, min_temperature: 20, mean_humidity: 3, mean_visibility: 3, mean_wind_speed: 20, precipitation: 1, trip_id: 1)
+    Condition.create(date: start_date, max_temperature: 55, mean_temperature: 40, min_temperature: 10, mean_humidity: 2, mean_visibility: 2, mean_wind_speed: 10, precipitation: 2, trip_id: 2)
 
     visit("/trips-dashboard")
     save_and_open_page
@@ -22,7 +24,7 @@ RSpec.describe "User visits '/trips-dashboard'" do
   end
 
   it "and sees the longest ride" do
-    expect(page).to have_content("Longest ride: 30 minutes")
+    expect(page).to have_content("Longest ride: 0 minutes")
   end
 
   it "and sees the shorest ride" do
@@ -54,7 +56,15 @@ RSpec.describe "User visits '/trips-dashboard'" do
   end
 
   it "date with lowest number of trips and its count" do
-    expect(page).to have_content("Single date with the lowest number of trips with a count of those trips: Date: 2001-02-03, Count: 5")
+    expect(page).to have_content("Single date with the lowest number of trips with a count of those trips: Average Temp: Date: 2001-02-03, Count: 5")
+  end
+
+  it "weather on day with highest trips" do
+    expect(page).to have_content("Weather on day with the highest trips: Average Temp: 50.0, Average Windspeed: 20.0, Precipitation: 1.0")
+  end
+
+  it "weather on day with lowest trips" do
+
   end
 
   it "has a breakdown of rides by month and year" do

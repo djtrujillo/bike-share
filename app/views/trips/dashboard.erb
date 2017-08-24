@@ -7,8 +7,8 @@
         <%= Trip.average_duration_of_ride.round %>
         minutes</li>
       <li class="list-group-item"><b>Longest ride:</b>
-        <%= (((Trip.longest_ride)/60)/24).round(1) %>
-        days</li>
+        <%= ((Trip.longest_ride)/60) %>
+        minutes</li>
       <li class="list-group-item"><b>Shortest ride:</b>
         <%= Trip.shortest_ride %>
         minutes</li>
