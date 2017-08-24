@@ -159,27 +159,25 @@ RSpec.describe Trip do
     end
 
     it 'returns the date with the highest number of trips' do
-      start_date_1 = DateTime.new(2001,2,3)
-      start_date_2 = DateTime.new(2001,1,3)
-      start_date_3 = DateTime.new(2001,3,3)
+      start_date_1 = DateTime.new(2001,2,3,4,5)
+      start_date_2 = DateTime.new(2001,3,3,4,5)
       end_date = DateTime.new(2001,2,3,4,5,8)
       Trip.create(duration: 10, start_date: start_date_1, start_station_id: 1, end_date: end_date, end_station_id: 2, bike_id: 1, subscription_type: "Customer", zip_code: 12345)
-      Trip.create(duration: 20, start_date: start_date_2, start_station_id: 2, end_date: end_date, end_station_id: 2, bike_id: 1, subscription_type: "Subscriber", zip_code: 12345)
-      Trip.create(duration: 20, start_date: start_date_3, start_station_id: 2, end_date: end_date, end_station_id: 2, bike_id: 2, subscription_type: "Subscriber", zip_code: 12345)
+      Trip.create(duration: 20, start_date: start_date_1, start_station_id: 2, end_date: end_date, end_station_id: 2, bike_id: 1, subscription_type: "Subscriber", zip_code: 12345)
+      Trip.create(duration: 20, start_date: start_date_2, start_station_id: 2, end_date: end_date, end_station_id: 2, bike_id: 2, subscription_type: "Subscriber", zip_code: 12345)
 
-      expect(Trip.date_with_highest_number_of_trips).to eq("Date: 2001-01-03, Count: 1")
+      expect(Trip.date_with_highest_number_of_trips).to eq("Date: 2001-02-03, Count: 2")
     end
 
     it 'returns the date with the lowest number of trips' do
-      start_date_1 = DateTime.new(2001,2,3)
-      start_date_2 = DateTime.new(2001,1,3)
-      start_date_3 = DateTime.new(2001,3,3)
+      start_date_1 = DateTime.new(2001,2,3,4,5)
+      start_date_2 = DateTime.new(2001,3,3,4,5)
       end_date = DateTime.new(2001,2,3,4,5,8)
       Trip.create(duration: 10, start_date: start_date_1, start_station_id: 1, end_date: end_date, end_station_id: 2, bike_id: 1, subscription_type: "Customer", zip_code: 12345)
-      Trip.create(duration: 20, start_date: start_date_2, start_station_id: 2, end_date: end_date, end_station_id: 2, bike_id: 1, subscription_type: "Subscriber", zip_code: 12345)
-      Trip.create(duration: 20, start_date: start_date_3, start_station_id: 2, end_date: end_date, end_station_id: 2, bike_id: 2, subscription_type: "Subscriber", zip_code: 12345)
+      Trip.create(duration: 20, start_date: start_date_1, start_station_id: 2, end_date: end_date, end_station_id: 2, bike_id: 1, subscription_type: "Subscriber", zip_code: 12345)
+      Trip.create(duration: 20, start_date: start_date_2, start_station_id: 2, end_date: end_date, end_station_id: 2, bike_id: 2, subscription_type: "Subscriber", zip_code: 12345)
 
-      expect(Trip.date_with_lowest_number_of_trips).to eq("Date: 2001-01-03, Count: 1")
+      expect(Trip.date_with_lowest_number_of_trips).to eq("Date: 2001-03-03, Count: 1")
     end
 
     it 'returns month by month breakdown' do

@@ -40,7 +40,7 @@
         <%= @conditions.condition_on_day_with_highest_rides %>
       </li>
       <li class="list-group-item"><b>Single date with the lowest number of trips with a count of those trips:</b>
-        Average Temp: <%= Trip.date_with_lowest_number_of_trips %>
+        <%= @trips.date_with_lowest_number_of_trips %>
       </li>
       <li class="list-group-item"><b>Weather on day with the lowest trips:</b>
         <%= @conditions.condition_on_day_with_lowest_rides %>

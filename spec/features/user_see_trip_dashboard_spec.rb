@@ -1,7 +1,7 @@
 RSpec.describe "User visits '/trips-dashboard'" do
   before :all do
     start_date = DateTime.new(2001,2,3,4,5)
-    end_date = DateTime.new(2001,3,3,4,5)
+    end_date = DateTime.new(2001,4,3,4,5)
     installation_date = DateTime.new(2001,1,1,1,1)
 
     Trip.create(duration: 10, start_station_id: 1, end_station_id: 3, bike_id: 318, zip_code: 94103, subscription_type: 'Subscriber', start_date: start_date, end_date: end_date)
@@ -56,7 +56,7 @@ RSpec.describe "User visits '/trips-dashboard'" do
   end
 
   it "date with lowest number of trips and its count" do
-    expect(page).to have_content("Single date with the lowest number of trips with a count of those trips: Average Temp: Date: 2001-02-03, Count: 5")
+    expect(page).to have_content("Single date with the lowest number of trips with a count of those trips: Date: 2001-02-03, Count: 5")
   end
 
   it "weather on day with highest trips" do
